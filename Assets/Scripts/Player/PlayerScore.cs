@@ -9,6 +9,8 @@ public class PlayerScore : MonoBehaviour
     private int score = 0;
 
     public Text scoreText; // Reference to the UI text object to display the score
+    public AudioSource goodBallAudioSource;
+    public AudioSource badBallAudioSource;
 
     private void Start()
     {
@@ -42,11 +44,17 @@ public class PlayerScore : MonoBehaviour
         {
             SubScore(5);
             Destroy(other.gameObject); // Destroy the BadBall object
+            if (badBallAudioSource != null) {
+                badBallAudioSource.Play(); // Play the bad ball sound effect
+            }
         }
         else if (other.gameObject.CompareTag("GoodBall"))
         {
             AddScore(10);
             Destroy(other.gameObject); // Destroy the GoodBall object
+            if (goodBallAudioSource != null) {
+                goodBallAudioSource.Play(); // Play the good ball sound effect
+            }
         }
     }
 
