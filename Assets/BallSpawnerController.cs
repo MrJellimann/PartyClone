@@ -9,6 +9,10 @@ public class BallSpawnerController : MonoBehaviour
     public Transform spawnArea;
     public float ballLifespan = 5.0f;
 
+    int spawns = 0;
+    int goodBalls = 12;
+    int badBalls = 8;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +21,38 @@ public class BallSpawnerController : MonoBehaviour
 
     IEnumerator SpawnBalls()
     {
-        while (true)
-        {
-            // Spawn a good ball
-            Vector3 goodBallPosition = GetRandomPositionWithinBox(spawnArea.position, spawnArea.localScale);
-            Instantiate(goodBallPrefab, goodBallPosition, Quaternion.identity);
+        goodBalls = 12;
+        badBalls = 8;
+        spawns = goodBalls + badBalls;
 
-            // Spawn a bad ball
-            Vector3 badBallPosition = GetRandomPositionWithinBox(spawnArea.position, spawnArea.localScale);
-            Instantiate(badBallPrefab, badBallPosition, Quaternion.identity);
+        while (spawns > 0)
+        {
+            GameObject _prefab;
+
+            if (badBalls > 0)
+            {
+                if (Random.value > .5f)
+                {
+                    _prefab = goodBallPrefab;
+                    goodBalls--;
+                }
+                else
+                {
+                    _prefab = badBallPrefab;
+                    badBalls--;
+                }
+            }
+            else
+            {
+                _prefab = goodBallPrefab;
+                goodBalls--;
+            }
+
+            // Spawn a good ball
+            Vector3 ballPosition = GetRandomPositionWithinBox(spawnArea.position, spawnArea.localScale);
+            var gBall = Instantiate(_prefab, ballPosition, Quaternion.identity, this.transform);
+
+            spawns--;
 
             yield return new WaitForSeconds(ballLifespan);
         }
@@ -38,7 +65,7 @@ public class BallSpawnerController : MonoBehaviour
             (Random.value - 0.5f) * size.y,
             (Random.value - 0.5f) * size.z
         );
-        randomPos = spawnArea.InverseTransformPoint(randomPos);
+        
         return randomPos;
     }
 }
