@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField]
     private float totalTime = 30f;
     [SerializeField]
-    private Text timeText;
+    private TMP_Text timeText;
     [SerializeField]
     private Image gameOverImage;
 
@@ -43,7 +44,7 @@ public class Timer : MonoBehaviour
     {
         if (timeText != null)
         {
-            timeText.text = "Time: " + Mathf.RoundToInt(currentTime).ToString();
+            timeText.text = "Time:\n" + Mathf.RoundToInt(currentTime).ToString();
         }
     }
 }

@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1766056093638557006}
   - component: {fileID: 1766056093638557005}
   - component: {fileID: 1766056093638557004}
-  - component: {fileID: 1766056093638557000}
+  - component: {fileID: 7610338672206730053}
+  - component: {fileID: -6960608888532248104}
   m_Layer: 0
   m_Name: BadBall
   m_TagString: BadBall
@@ -92,20 +93,33 @@ SphereCollider:
   m_GameObject: {fileID: 1766056093638557011}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &1766056093638557000
-BoxCollider:
+--- !u!114 &7610338672206730053
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766056093638557011}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa64dead6c90e145a6ec2251b5cd948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationDuration: 1
+--- !u!114 &-6960608888532248104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766056093638557011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0000c7f17695d4c9b748dc54c71792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballLifetime: 5

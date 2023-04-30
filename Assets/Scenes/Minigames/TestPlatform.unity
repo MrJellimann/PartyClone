@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &65302309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+  m_PrefabInstance: {fileID: 1901686704743412101}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &174566672
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +262,9 @@ MonoBehaviour:
   goodBallPrefab: {fileID: 4200072861879655354, guid: be25d907b1612e34b98ecfe2bc0766c9, type: 3}
   badBallPrefab: {fileID: 1766056093638557011, guid: e7bc0a5ea72a35e48a98e445a2e57a9a, type: 3}
   spawnArea: {fileID: 1048980176}
-  ballLifespan: 5
+  goodBalls: 15
+  badBalls: 10
+  timeBetweenSpawns: 1
 --- !u!4 &198605849
 Transform:
   m_ObjectHideFlags: 0
@@ -762,7 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalTime: 30
-  timeText: {fileID: 0}
+  timeText: {fileID: 65302309}
   gameOverImage: {fileID: 0}
 --- !u!4 &694959783
 Transform:
@@ -1314,6 +1327,66 @@ PrefabInstance:
     - target: {fileID: 1901686703344941588, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
       propertyPath: m_Name
       value: UIMinigameCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_fontSize
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_lineOffset
+      value: 73.59375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_maxFontSize
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_PageAscender
+      value: 57.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_maxCapHeight
+      value: 43.906975
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_preferredWidth
+      value: 71.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_ElementAscender
+      value: 57.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_currentFontSize
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_maxTextAscender
+      value: 57.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_preferredHeight
+      value: 71.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_ElementDescender
+      value: -13.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_startOfLineAscender
+      value: 57.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901686703806615650, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3607092864004251853, guid: 48336c1d885fcdf4d80ddd8316c65976, type: 3}
       propertyPath: m_AnchorMax.y

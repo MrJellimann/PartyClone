@@ -7,13 +7,11 @@ public class BallSpawnerController : MonoBehaviour
     public GameObject goodBallPrefab;
     public GameObject badBallPrefab;
     public Transform spawnArea;
-    public float goodBallLifespan = 5.0f;
-    public float badBallLifespan = 5.0f;
-    public float spawnAnimationDuration = 1.0f;
 
     int spawns = 0;
-    int goodBalls = 12;
-    int badBalls = 8;
+    [SerializeField] [Range(10, 30)] int goodBalls = 12;
+    [SerializeField] [Range(5, 20)] int badBalls = 8;
+    [SerializeField] [Range(0.5f, 5.0f)] float timeBetweenSpawns = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,46 +35,26 @@ public class BallSpawnerController : MonoBehaviour
                 {
                     _prefab = goodBallPrefab;
                     goodBalls--;
-                    StartCoroutine(DestroyAfterTime(_prefab, goodBallLifespan));
                 }
                 else
                 {
                     _prefab = badBallPrefab;
                     badBalls--;
-                    StartCoroutine(DestroyAfterTime(_prefab, badBallLifespan));
                 }
             }
             else
             {
                 _prefab = goodBallPrefab;
                 goodBalls--;
-                StartCoroutine(DestroyAfterTime(_prefab, goodBallLifespan));
             }
 
             // Spawn a ball with a grow animation
             Vector3 ballPosition = GetRandomPositionWithinBox(spawnArea.position, spawnArea.localScale);
             var ball = Instantiate(_prefab, ballPosition, Quaternion.identity, this.transform);
 
-            float animationTime = 0.0f;
-            while (animationTime < spawnAnimationDuration)
-            {
-                float scale = Mathf.Lerp(0, 1, animationTime / spawnAnimationDuration);
-                ball.transform.localScale = new Vector3(scale, scale, scale);
-                animationTime += Time.deltaTime;
-                yield return null;
-            }
-            ball.transform.localScale = Vector3.one;
-
             spawns--;
-            yield return new WaitForSeconds(0.5f); // Wait for half a second before spawning the next ball
+            yield return new WaitForSeconds(timeBetweenSpawns); // Wait for half a second before spawning the next ball
         }
-    }
-
-    IEnumerator DestroyAfterTime(GameObject ball, float lifespan)
-    {
-        yield return new WaitForSeconds(lifespan);
-        if (ball != null)
-            Destroy(ball.gameObject);
     }
 
     Vector3 GetRandomPositionWithinBox(Vector3 center, Vector3 size)
