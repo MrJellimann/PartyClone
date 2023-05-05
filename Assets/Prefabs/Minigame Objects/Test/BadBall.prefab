@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1766056093638557004}
   - component: {fileID: 7610338672206730053}
   - component: {fileID: -6960608888532248104}
+  - component: {fileID: 3760493261042352608}
+  - component: {fileID: 8990309736910731564}
   m_Layer: 0
   m_Name: BadBall
   m_TagString: BadBall
@@ -124,6 +126,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballLifetime: 3
+--- !u!54 &3760493261042352608
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766056093638557011}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8990309736910731564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766056093638557011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4c4dac918046647a243053d0bcc06c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collideWithLayer: 0000000000000100000000000000000000000000000000000000000000000000
+  objectToDestroy: {fileID: 1766056093638557011}
 --- !u!1001 &2223932553183748313
 PrefabInstance:
   m_ObjectHideFlags: 0

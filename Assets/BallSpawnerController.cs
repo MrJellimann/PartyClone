@@ -9,8 +9,8 @@ public class BallSpawnerController : MonoBehaviour
     public Transform spawnArea;
 
     int spawns = 0;
-    [SerializeField] [Range(10, 30)] int goodBalls = 12;
-    [SerializeField] [Range(5, 20)] int badBalls = 8;
+    [SerializeField] [Range(0, 60)] int goodBalls = 12;
+    [SerializeField] [Range(0, 60)] int badBalls = 8;
     [SerializeField] [Range(0.5f, 5.0f)] float timeBetweenSpawns = 1.0f;
 
     // Start is called before the first frame update
@@ -21,17 +21,15 @@ public class BallSpawnerController : MonoBehaviour
 
     IEnumerator SpawnBalls()
     {
-        goodBalls = 12;
-        badBalls = 8;
         spawns = goodBalls + badBalls;
 
         while (spawns > 0)
         {
             GameObject _prefab;
 
-            if (badBalls > 0)
+            if (Random.value > .5f)
             {
-                if (Random.value > .5f)
+                if (goodBalls > 0)
                 {
                     _prefab = goodBallPrefab;
                     goodBalls--;
@@ -44,8 +42,16 @@ public class BallSpawnerController : MonoBehaviour
             }
             else
             {
-                _prefab = goodBallPrefab;
-                goodBalls--;
+                if (badBalls > 0)
+                {
+                    _prefab = badBallPrefab;
+                    badBalls--;
+                }
+                else
+                {
+                    _prefab = goodBallPrefab;
+                    goodBalls--;
+                }
             }
 
             // Spawn a ball with a grow animation
